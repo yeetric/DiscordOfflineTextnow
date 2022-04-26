@@ -22,32 +22,38 @@ def paste():
     pyautogui.hotkey('ctrl', 'v')
 
 
-client = pytextnow.Client("yeetricstorage", sid_cookie="s%3ACPyraqk8YbdKDhLNjMThwSwPSVtpdEsb.TGedwHmjcZ82uFARzF5fiXhJ6ohDMWWOVw0Uq27JXgI", csrf_cookie="s%3AIUtsySojIO94oiFnIho3Ee0n.OJJ%2F5y4fnrF3vxvVVh9y8Toz57NGPbcMd7iKNTXgIaw")
+client = pytextnow.Client("yeetricstorage",
+                          sid_cookie="s%3ACPyraqk8YbdKDhLNjMThwSwPSVtpdEsb.TGedwHmjcZ82uFARzF5fiXhJ6ohDMWWOVw0Uq27JXgI",
+                          csrf_cookie="s%3AIUtsySojIO94oiFnIho3Ee0n.OJJ%2F5y4fnrF3vxvVVh9y8Toz57NGPbcMd7iKNTXgIaw")
+
 while True:
-    new_messages = client.get_unread_messages()
+    try:
+        new_messages = client.get_unread_messages()
 
-    for message in new_messages:
-        message.mark_as_read()
-        print(message.number)
-        print(message.content)
-        x = message.content
+        for message in new_messages:
+            message.mark_as_read()
+            print(message.number)
+            print(message.content)
+            x = message.content
 
-        if "discord-" in message.content:
-            print("discord detected")
-            x = x.replace("discord-", "")
-            moveAndClick(650, 1000)
-            pyautogui.typewrite(x) # type the message
-            pyautogui.press('enter') # press enter
+            if "discord-" in message.content:
+                print("discord detected")
+                x = x.replace("discord-", "")
+                moveAndClick(650, 1000)
+                pyautogui.typewrite(x) # type the message
+                pyautogui.press('enter') # press enter
+                client.send_sms("5102880541", "Message sent")
 
-        if "update-" in message.content:
-            print("update detected")
-            screenshot()
-            switch_tabs()
-            moveAndClick(650, 1000)
-            paste()
-            time.sleep(1)
-            moveAndClick(968,727) #clicks send
-            time.sleep(1)
-            switch_tabs()
-            moveAndClick(650, 1000)
-
+            if "update-" in message.content:
+                print("update detected")
+                screenshot()
+                switch_tabs()
+                moveAndClick(650, 1000)
+                paste()
+                time.sleep(1)
+                moveAndClick(968,727) #clicks send
+                time.sleep(1)
+                switch_tabs()
+                moveAndClick(650, 1000)
+    except:
+        print("idk smth went wrong")

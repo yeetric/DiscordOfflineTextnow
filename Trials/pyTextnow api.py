@@ -11,6 +11,7 @@ while True:
 
     for message in new_messages:
         message.mark_as_read()
+
         print(message)
         print(message.number)
         print(message.content)
