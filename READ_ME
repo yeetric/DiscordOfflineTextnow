@@ -1,0 +1,17 @@
+DAY 1 4/23:
+
+Plan: scrape electron.textnow website for text message to myself. send on discord using pyautogui or
+a discord bot. when a message is received, discord bot or screen shot to the program. the program will
+then send the message to the textnow account using pytextnow or pyautogui.
+
+"""
+
+# my sid cookie
+#  s%3ACPyraqk8YbdKDhLNjMThwSwPSVtpdEsb.TGedwHmjcZ82uFARzF5fiXhJ6ohDMWWOVw0Uq27JXgI
+# my csrf cookie
+# s%3AIUtsySojIO94oiFnIho3Ee0n.OJJ%2F5y4fnrF3vxvVVh9y8Toz57NGPbcMd7iKNTXgIaw
+#  my username
+# yeetricstorage
+
+https://github.com/leogomezz4t/PyTextNow_API
+pytextnow api
